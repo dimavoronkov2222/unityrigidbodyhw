@@ -12,31 +12,12 @@ public class playermovement : MonoBehaviour
     private float yRot;
     private bool isGrounded;
     void Start()
-{
-    if (playerCapsule == null)
     {
-        Debug.LogError("❌ Ошибка: `playerCapsule` не назначен! Перетащи капсулу в инспекторе.");
-        enabled = false;
-        return;
-    }
-    
-    Debug.Log("✅ `playerCapsule` найден: " + playerCapsule.name);
-
     rb = playerCapsule.GetComponent<Rigidbody>();
-
-    if (rb == null)
-    {
-        Debug.LogError("❌ Ошибка: `Rigidbody` отсутствует на `playerCapsule`! Добавь его.");
-        enabled = false;
-        return;
-    }
-
-    Debug.Log("✅ `Rigidbody` найден!");
     rb.freezeRotation = true;
     Cursor.lockState = CursorLockMode.Locked;
     playerSpeed = walkSpeed;
-}
-
+    }
     void Update()
 	{
     	if (rb == null) return;
